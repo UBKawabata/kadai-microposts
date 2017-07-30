@@ -8,13 +8,12 @@
         <img class="media-object img-rounded img-responsive" src="<%= gravatar_url(@user, { size: 500 }) %>" alt="">
       </div>
     </div>
-    <%= render 'favorites/favorite_button', micropost: @micropost %>
   </aside>
   <div class="col-xs-8">
     <ul class="nav nav-tabs nav-justified">
-      <li class="<%= 'active' if current_page?(micropost_path(@micropost)) %>"><%= link_to micropost_path(@micropost) do %>Microposts <span class="badge"><%= @count_microposts %></span><% end %></li>
-      <li class="<%= 'active' if current_page?(favorites_micropost_path(@micropost)) %>"><%= link_to favorites_micropost_path(@micropost) do %>Favorites <span class="badge"><%= @count_favorites %></span><% end %></li>
+      <li class="<%= 'active' if current_page?(micropost_path(@user)) %>"><%= link_to micropost_path(@user) do %>Microposts <span class="badge"><%= @count_microposts %></span><% end %></li>
+      <li class="<%= 'active' if current_page?(favorites_user_path(@user)) %>"><%= link_to favorites_user_path(@user) do %>Favorites <span class="badge"><%= @count_favorites %></span><% end %></li>
     </ul>
-    <%= render 'micropost', micropost: @favorites %>
+    <%= render 'microposts/microposts', microposts: @microposts %>
   </div>
 </div>
